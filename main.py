@@ -6,4 +6,4 @@ game = Blackjack()
 
 game.setup_game()
 
-print(game.decks)
+print(game.shoe)
