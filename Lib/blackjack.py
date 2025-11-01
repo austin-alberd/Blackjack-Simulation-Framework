@@ -1,10 +1,7 @@
 import random
-from player import Player
+from Lib.player import Player
 
 class Blackjack:
-
-
-
     def __init__(self, num_decks = 1,num_players = 2):
         self._numDecks = num_decks
         self._numPlayers = num_players
@@ -21,5 +18,7 @@ class Blackjack:
 
     def run_game(self):
         pass
+
+    def add_player(self, player): self._players.append(player)
 
 

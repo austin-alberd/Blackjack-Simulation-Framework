@@ -17,7 +17,7 @@ This is the basic setup for a game. The passed in arguements are the defaults so
 Note: you must add a minimum of 2 players. 1 must be the dealer and any others can be anything.
 
 ### Setup: Defining Player Strategies
-This is the hardest part of setting up this framework. If a player is not given a strategy they will be given the house strategy by default (Hit on anything lower than 16). Strategies are represented as dictionaries. Here is an example.
+This is the hardest part of setting up this framework. If a player is not given a strategy they will be given the house strategy by default (Hit on anything lower than 16). Strategies are represented as dictionaries. Here is an example. If you do not want to hit or stand at all based on a certain total (i.e. `soft_hit`) just keep the array empty.
 
 ```json
 {
