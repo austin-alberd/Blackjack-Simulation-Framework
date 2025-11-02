@@ -14,6 +14,10 @@ strategy = {
   "hard_stand": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 }
 
-player = Player(name="player", strategy=strategy)
+game.add_player(Player())
+game.add_player(Player(name="player1"))
 
-player.validate_strategy()
+result = game.run_game()
+
+for result in result:
+    print(result)

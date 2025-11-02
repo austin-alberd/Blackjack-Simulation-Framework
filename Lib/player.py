@@ -3,6 +3,8 @@ class Player:
         self.name = name
         self.strategy = strategy
         self.hand = []
+        self.soft_total = 0
+        self.hard_total = 0
 
     def validate_strategy(self):
         try:
@@ -24,5 +26,21 @@ class Player:
         for v in hard_stand:
             if v < 0 or v > 21:
                 raise ValueError("hard_stand is invalid")
+
+    def add_to_hand(self, card):
+        self.hand.append(card)
+    def clear_hand(self): self.hand = []
+
+    def inc_soft_total(self, value):
+        self.soft_total += value
+    def inc_hard_total(self, value):
+        self.hard_total += value
+
+
+    def get_hand(self):return self.hand
+    def get_soft_total(self):return self.soft_total
+    def get_hard_total(self):return self.hard_total
+    def get_name(self):return self.name
+
 
 
