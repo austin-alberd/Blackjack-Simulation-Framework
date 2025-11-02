@@ -50,8 +50,14 @@ class Blackjack:
             player.add_to_hand(self._shoe.pop())
             player.add_to_hand(self._shoe.pop())
             self._history.append(History(player.get_name(),"init","init",player.get_hand(),player.get_soft_total(),player.get_hard_total()))
+            hand_type_flag, total = self.count_cards(player.get_hand())
+
+            if hand_type_flag == "st":
+                player.set_soft_total(total)
+            elif hand_type_flag == "ht":
+                player.set_hard_total(total)
+            else:
+                raise Exception("UhOh Some Unknown Error Has Occoured. Maybee your dealer cheated :(")
         return self._history
 
     def add_player(self, player): self._players.append(player)
-
-

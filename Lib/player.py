@@ -31,10 +31,10 @@ class Player:
         self.hand.append(card)
     def clear_hand(self): self.hand = []
 
-    def inc_soft_total(self, value):
-        self.soft_total += value
-    def inc_hard_total(self, value):
-        self.hard_total += value
+    def set_soft_total(self, value):
+        self.soft_total = value
+    def set_hard_total(self, value):
+        self.hard_total = value
 
 
     def get_hand(self):return self.hand
