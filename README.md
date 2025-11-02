@@ -31,3 +31,5 @@ This is the hardest part of setting up this framework. If a player is not given 
 `soft_hit` and `hard_hit` dictate what you will hit on and are short for soft total hit and hard total hit. `soft_stand` and `hard_stand` dictate when you stand and are short for soft total stand and hard total stand.
 
 ### Setup: Creating Players
+The default player is the dealer. Any other players are created through the Player class.
+
