@@ -1,5 +1,7 @@
 class Player:
-    def __init__(self, name = "Dealer", strategy = {"soft_hit": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"hard_hit": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"soft_stand": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"hard_stand": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]}):
+    def __init__(self, name,strategy):
+        if strategy is None:
+            strategy ={"soft_hit": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"hard_hit": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"soft_stand": [17,18,19,20,21],"hard_stand": [17,18,19,20,21]}
         self.name = name
         self.strategy = strategy
         self.hand = []
@@ -27,9 +29,9 @@ class Player:
             if v < 0 or v > 21:
                 raise ValueError("hard_stand is invalid")
 
-    def add_to_hand(self, card):
-        self.hand.append(card)
-    def clear_hand(self): self.hand = []
+    def add_to_hand(self, card): self.hand.append(card)
+    def clear_hand(self):
+        self.hand.clear()
 
     def set_soft_total(self, value):
         self.soft_total = value
@@ -41,6 +43,6 @@ class Player:
     def get_soft_total(self):return self.soft_total
     def get_hard_total(self):return self.hard_total
     def get_name(self):return self.name
-
+    def get_strategy(self):return self.strategy
 
 
