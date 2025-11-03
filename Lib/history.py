@@ -8,3 +8,4 @@ class History:
     hand: list[Any]
     soft_total: int
     hard_total: int
+    game_ending_flag: bool
