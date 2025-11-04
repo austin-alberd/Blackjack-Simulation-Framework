@@ -108,6 +108,8 @@ class Blackjack:
         self._history.clear()
         self.initial_deal()
         self.play_rounds()
+        for player in self._players:
+            player.reset()
         return self._history
 
     def get_end_game(self):

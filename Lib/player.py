@@ -1,3 +1,4 @@
+# The player class. Stores all of the data for the player
 class Player:
     def __init__(self, name,strategy):
         if strategy is None:
@@ -38,6 +39,10 @@ class Player:
     def set_hard_total(self, value):
         self.hard_total = value
 
+    def reset(self):
+        self.hand.clear()
+        self.hard_total=0
+        self.soft_total=0
 
     def get_hand(self):return self.hand
     def get_soft_total(self):return self.soft_total
