@@ -1,9 +1,8 @@
 import random
 from Lib.history import History
 class Blackjack:
-    def __init__(self, num_decks = 1,num_players = 2):
+    def __init__(self, num_decks = 1):
         self._numDecks = num_decks
-        self._numPlayers = num_players
         self._players = []
         self._shoe = [] # All the cards. In casino, it is technically called a shoe
         self._defaultDeck = ["a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, "a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, "a", 2, 3,4, 5, 6, 7, 8, 9, 10, 10, 10, "a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
@@ -107,7 +106,6 @@ class Blackjack:
 
     def run_game(self):
         self._history.clear()
-        self.setup_game()
         self.initial_deal()
         self.play_rounds()
         return self._history
@@ -186,5 +184,10 @@ class Blackjack:
                     end_game_states.pop(i)
 
         return winners, loosers, pushers
+
+
+    #getters
+    def get_shoe_size(self): return len(self._shoe)
+    def get_player_count(self): return len(self._players)
 
     def add_player(self, player): self._players.append(player)
