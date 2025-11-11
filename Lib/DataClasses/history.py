@@ -1,5 +1,4 @@
 #The history data class. View this like a log
-
 from dataclasses import dataclass
 from typing import Any
 @dataclass

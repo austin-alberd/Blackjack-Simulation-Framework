@@ -1,11 +1,11 @@
 import random
-from Lib.history import History
+from Lib.DataClasses.history import History
 class Blackjack:
     def __init__(self, num_decks = 1):
         self._numDecks = num_decks
         self._players = []
         self._shoe = [] # All the cards. In casino, it is technically called a shoe
-        self._defaultDeck = ["a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, "a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, "a", 2, 3,4, 5, 6, 7, 8, 9, 10, 10, 10, "a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
+        self._defaultDeck = ["a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, "a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, "a", 2, 3,4, 5, 6, 7, 8, 9, 10, 10, 10, 10, "a", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
         self._history=[]
 
     def count_cards(self,hand):
@@ -68,23 +68,29 @@ class Blackjack:
                     if total in player.get_strategy()["soft_hit"]:
                         action = "hit"
                         player.add_to_hand(self._shoe.pop())
-                        _, total = self.count_cards(player.get_hand())
-                        player.set_soft_total(total)
+                        _, newTotal = self.count_cards(player.get_hand())
+                        player.set_soft_total(newTotal)
                     elif total in player.get_strategy()["soft_stand"]:
                         action = "stand"
                         is_stand = True
                         game_ending_flag = True
+                    else: #TODO
+                        print(total)
+                        game_ending_flag =True
                 else:
                     total = player.get_hard_total()
                     if total in player.get_strategy()["hard_hit"]:
                         action = "hit"
                         player.add_to_hand(self._shoe.pop())
-                        _, total = self.count_cards(player.get_hand())
-                        player.set_hard_total(total)
+                        _, newTotal = self.count_cards(player.get_hand())
+                        player.set_hard_total(newTotal)
                     elif total in player.get_strategy()["hard_stand"]:
                         action = "stand"
                         game_ending_flag = True
                         is_stand = True
+                    else: # TODO
+                        print(total)
+                        game_ending_flag = True
 
                 #calculate the final stuff
                 if "a" in player.get_hand():
@@ -192,4 +198,5 @@ class Blackjack:
     def get_shoe_size(self): return len(self._shoe)
     def get_player_count(self): return len(self._players)
 
+    #setters
     def add_player(self, player): self._players.append(player)
